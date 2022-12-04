@@ -11,10 +11,10 @@ use App\Models\tempatkp;
 
 class kpController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index(Request $request) {
         $katakunci = $request->katakunci;
@@ -65,7 +65,7 @@ class kpController extends Controller
 
     public function store(Request $request) {
         $request->validate([
-            'id_kp' => 'required',
+            // 'id_kp' => 'required',
             'nilai' => 'required',
             'nim' => 'required',
             'judul_kp' => 'required',
@@ -73,9 +73,9 @@ class kpController extends Controller
         ]);
 
         // Menggunakan Query Builder Laravel dan Named Bindings untuk valuesnya
-        DB::insert('INSERT INTO kp(id_kp, nilai, nim, judul_kp, waktu_mulai) VALUES (:id_kp, :nilai, :nim, :judul_kp, :waktu_mulai)',
+        DB::insert('INSERT INTO kp(nilai, nim, judul_kp, waktu_mulai) VALUES (:nilai, :nim, :judul_kp, :waktu_mulai)',
         [
-            'id_kp' => $request->id_kp,
+            // 'id_kp' => $request->id_kp,
             'nilai' => $request->nilai,
             'nim' => $request->nim,
             'judul_kp' => $request->judul_kp, 

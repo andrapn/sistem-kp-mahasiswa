@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\kpController;
 use App\Http\Controllers\mahasiswaController;
@@ -18,12 +18,11 @@ use App\Http\Controllers\tempatkpController;
 |
 */
 
-// Auth::routes();
-// Route::group(['middleware' => 'auth'], function(){
-//     Route::get('/', [MerchController::class, 'index'])->name('merch.index');
-// });
+Auth::routes();
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/', [kpController::class, 'index'])->name('kp.index');
+});
 
-Route::get('/', [kpController::class, 'index'])->name('kp.index');
 Route::get('add', [kpController::class, 'create'])->name('kp.create'); 
 Route::post('store', [kpController::class, 'store'])->name('kp.store');
 Route::get('edit/{id}', [kpController::class, 'edit'])->name('kp.edit'); 
@@ -47,3 +46,7 @@ Route::post('tempatkp/delete/{id}', [tempatkpController::class, 'delete'])->name
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

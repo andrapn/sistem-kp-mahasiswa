@@ -71,8 +71,8 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#softhapusModal{{ $data->id_kp }}">
-                        Hapus tapi yang halus
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#softhapusModal{{ $data->id_kp }}">
+                        Hapus halus
                     </button>
                     
                     <div class="modal fade" id="softhapusModal{{ $data->id_kp }}" tabindex="-1" aria-labelledby="softhapusModalLabel" aria-hidden="true">
